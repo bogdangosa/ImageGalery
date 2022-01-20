@@ -1,0 +1,20 @@
+.searchbar{
+    /*z-index: 12;*/
+    background: #fff;
+    padding: 1rem 2rem;
+    width: 60%;
+    border-radius: 0.5rem;
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search_btn{
+    height: 1.7rem;
+}
+
+.input_searchbar{
+    outline: none;
+    border:none;
+    font-size: 1.2rem;
+}

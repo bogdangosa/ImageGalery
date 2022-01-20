@@ -1,0 +1,22 @@
+.SearchId{
+    padding-top: 6rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search_id_title{
+    width: 100%;
+    padding:1rem 5%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.searchid_image_galery{
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 2rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }

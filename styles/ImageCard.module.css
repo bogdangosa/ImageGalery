@@ -1,0 +1,42 @@
+.image_card{
+    width: 28vw;
+    position: relative;
+    height: 60vh;
+    cursor: pointer;
+}
+
+.image_card:hover .image_card_grey_bgd{
+    background: rgba(0, 0, 0,0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    transition: 1s;
+}
+
+.image_card_photographer{
+    z-index: 4;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    transition: 1s;
+}
+.image_card:hover .image_card_photographer{
+    opacity: 1;
+}
+
+.image_card_image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+

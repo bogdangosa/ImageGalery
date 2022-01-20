@@ -1,0 +1,17 @@
+.header{
+    width: 100vw;
+    min-height: 6rem;
+    background: #232A34;
+    color: #fff;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 5%;
+    z-index: 10;
+    position:fixed;
+}
+
+.logo_header{
+    height: 3rem;
+}
