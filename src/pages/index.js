@@ -13,7 +13,7 @@ const API_KEY = process.env.NEXT_PUBLIC_PEXELS_API_KEY;
 export const getStaticProps = async () =>{
 
   const response = await fetch(
-    `https://api.pexels.com/v1/curated?page=&per_page=18`,
+    `https://api.pexels.com/v1/curated?page=2&per_page=18`,
     {
     headers: {
       Authorization: API_KEY,
@@ -61,7 +61,7 @@ export default function Home({images}) {
         <div className={styles.home_background_grey}></div>
         <img src="home-background.jpg" className={styles.home_background}/>
         
-        <Searchbar search_value={SearchValue} setSearchValue={(search_value)=>setSearchValue(search_value)} onSearch={()=>Search()}/>
+        <Searchbar search_value={SearchValue} setSearchValue={(search_value)=>setSearchValue(search_value)} onSearch={()=>Search()} className={styles.home_searchbar}/>
         <h1 className={styles.home_title}>The best free stock photos, royalty
             free images & videos shared by 
             creators.</h1>

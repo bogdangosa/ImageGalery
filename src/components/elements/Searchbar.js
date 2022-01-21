@@ -6,7 +6,7 @@ const Searchbar = (props) =>{
     const onSearch = props.onSearch;
 
     return(
-        <div className={styles.searchbar}>
+        <div className={styles.searchbar+' '+props.className}>
             <input className={styles.input_searchbar}  placeholder="Search" value={props.search_value}onChange={(e)=>SetSearchValue(e.target.value)}/>
             <img src="search-icon.svg" className={styles.search_btn} onClick={()=>onSearch()}></img>
         </div>
