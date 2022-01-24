@@ -2,7 +2,7 @@
     width: 100%;
     box-sizing: border-box;
     box-sizing: border-box;
-    padding: 6rem 5% 3rem 5%;
+    padding: 6rem 5% 1rem 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +11,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    padding: 0 2rem;
+    width: 70%;
+    margin-top: 2rem;
+    background: #fff;
+    height: auto;
 }
 
 .post_photographer{
@@ -36,4 +40,27 @@
 .selected_mode{
     border:3px solid #12a76e;
     color: #12a76e;
+}
+
+
+.image_post_container{
+    width: 70%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+}
+
+.image_post_landscape{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+}
+
+
+
+.image_post_portrait{
+    width: 40%;
+    height: 90%;
+    object-fit: cover;
 }

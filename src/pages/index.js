@@ -11,27 +11,30 @@ const API_KEY = process.env.NEXT_PUBLIC_PEXELS_API_KEY;
 
 
 export const getStaticProps = async () =>{
-
-  const response = await fetch(
-    `https://api.pexels.com/v1/curated?page=2&per_page=18`,
-    {
-    headers: {
-      Authorization: API_KEY,
-    }});
-    const data = await response.json();
-    //console.log(data);
-
-
+    const data = await getImages(1);
   return {
-    props: {images: data}
+    props: {initial_images: data}
   }
 
 }
 
-export default function Home({images}) {
+const getImages = async (page)=>{
+  const response = await fetch(
+  `https://api.pexels.com/v1/curated?page=${page}&per_page=18`,
+  {
+  headers: {
+    Authorization: API_KEY,
+  }});
+  const data = await response.json();
+  return data;
+}
+
+export default function Home({initial_images}) {
   const router = useRouter()
 
   const [SearchValue,setSearchValue] = useState('');
+  const [Images,setImages] = useState(initial_images);
+  const [PagesCounter,setPagesCounter] = useState(1);
 
   const Search = () =>{
       console.log(SearchValue);
@@ -46,6 +49,13 @@ export default function Home({images}) {
       pathname: '/post/[id]',
       query: { id:  post_id},
     });
+  }
+
+  const ChangePage = async (direction) =>{
+    const data = await getImages(PagesCounter+direction);
+    setPagesCounter(PagesCounter+direction);
+    console.log(data)
+    setImages(data);
   }
 
 
@@ -68,9 +78,17 @@ export default function Home({images}) {
         
       </div>
 
+      <div className={styles.home_galery_navigation}>
+          <h2>Free Stock Photos</h2>
+          <div className={styles.home_galery_pagination}>
+              <p className={styles.home_pagination_btn} onClick={()=>ChangePage(-1)}>Previous Page</p>
+              <p className={styles.home_pagination_btn}onClick={()=>ChangePage(1)}>Next Page</p>
+          </div>
+      </div>
+
       <div className={styles.home_image_galery}>
           {
-            images.photos.map((imagedata,index)=>{
+            Images.photos.map((imagedata,index)=>{
               return(
                 <ImageCard key={index} data={imagedata} onClick={()=>openPost(imagedata.id)}></ImageCard>
               )
@@ -78,7 +96,6 @@ export default function Home({images}) {
           }
 
         </div>
-        <p className={styles.home_load_more} >Load More</p>
     </div>
   )
 }

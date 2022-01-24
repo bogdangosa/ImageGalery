@@ -33,13 +33,34 @@
   color: #fff;
 }
 
+.home_galery_navigation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 1rem 5%;
+}
+.home_galery_pagination{
+  display: flex;
+  align-items: center;
+}
+.home_pagination_btn{
+  padding: 0.5rem 1rem;
+  background: #12a76e;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
 .home_image_galery{
   width: 100vw;
   box-sizing: border-box;
   padding: 2rem 5%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .home_searchbar{
@@ -47,6 +68,14 @@
   padding:1rem 2rem;
   opacity: 1;
   width: 60%;
+}
+
+.home_load_more{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 700px)  {

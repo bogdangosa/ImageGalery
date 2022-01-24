@@ -20,7 +20,7 @@ export const getServerSideProps = async (context) =>{
     console.log(context.query.id);
 
     const data = await getSearchedImage(context.query.id)
-    console.log(data);
+    //console.log(data);
     
     
     return {
@@ -43,8 +43,16 @@ const Post = ({imagedata}) =>{
                 <p className={imageMode!="landscape"?styles.post_image_mode+' '+styles.selected_mode:styles.post_image_mode} onClick={()=>setimageMode("portrait")}>portrait</p>
             </div>
             </div>
-            {imageMode=="landscape"?<img src={imagedata.src.landscape}></img>:
-            <img src={imagedata.src.portrait}></img>}
+            <div className={styles.image_post_container}>
+            {imageMode=="landscape"?<img src={imagedata.src.landscape} className={styles.image_post_landscape}></img>:
+            <img src={imagedata.src.portrait} className={styles.image_post_portrait}></img>}
+            </div>
+
+        <style jsx global>{`
+        body {
+        background: ${imagedata.avg_color};
+        }
+      `}</style>
         </div>
     )
 }
